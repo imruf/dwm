@@ -1,4 +1,4 @@
-dwm - dynamic window manager
+dwm - dynamic window manager Version:6.3
 ---
  dwm is an extremely fast, small, and dynamic window manager for X.
  
@@ -40,12 +40,12 @@ Window
                            
     Zoom/NxtMaster:                          Alt+Enter
     
-    Center Float:                            Alt+KP_Add
+    Center Float:                            Alt+KP_Enter
     Move Float:
-      - Up:                                  Alt+KP_Multiply
-      - Down:                                Alt+KP_Divide
-      - Left:                                Alt+KP_Home
-      - Right:                               Alt+KP_Minus
+      - Up:                                  Alt+KP_Minus
+      - Down:                                Alt+KP_Plus
+      - Left:                                Alt+KP_Divide
+      - Right:                               Alt+KP_Multiply
     Resize Float:
       - Up:                                  Alt+Shift+KP_Multiply
       - Down:                                Alt+Shift+KP_Divide
