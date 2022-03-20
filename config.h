@@ -38,12 +38,14 @@ const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "110x18", NULL };
 const char *spcmd2[] = {TERMINAL, "-n", "nnn", "-g", "130x22", "-e", "nnn_tmux", NULL };
 const char *spcmd3[] = {"kate", "-s", "notes", NULL };
 const char *spcmd4[] = {"konsole", "--profile", "sol", NULL }; /* konsole can render devnagri complex script font perfectly  */
+const char *spcmd5[] = {TERMINAL, "-n", "music", "-g", "110x18", "-e", "ncmpcpp", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
 	{"nnn",         spcmd2},
 	{"kate",        spcmd3},
 	{"sdcv",        spcmd4},
+	{"music",     spcmd5},
 };
 
 /* tagging */
@@ -70,6 +72,7 @@ static const Rule rules[] = {
 { NULL,		                 "nnn",    NULL,               SPTAG(1),  1,			                     -1 },
 { "kate",                    NULL,     "notes: notes.md ", SPTAG(2),  1,	                             -1 },
 { "konsole",                 NULL,     NULL,               SPTAG(3),  1,                       0,        -1 },
+{ NULL,                      "music",  NULL,               SPTAG(4),  1,                       0,        -1 },
 { "kile",                    NULL,     NULL,               1 << 3,    0,	                             -1 },
 { "libreoffice",             NULL,     NULL,               1 << 3,    0,                       0,        -1 },
 { "soffice",                 NULL,     NULL,               1 << 3,    0,                       0,        -1 },
@@ -224,9 +227,9 @@ static Key keys[] = {
 	{ MOD2,                         XK_slash,         togglescratch,  {.ui = 0 } },
 	{ MODKEY, 			            XK_o,             togglescratch,  {.ui = 1 } },
 	{ MOD2, 			            XK_n,             togglescratch,  {.ui = 2 } },
-	{ MOD2, 			            XK_m,             togglescratch,  {.ui = 3 } },
+	{ MODKEY|ShiftMask, 	        XK_m,             togglescratch,  {.ui = 3 } },
+	{ MOD2,	                        XK_m,             togglescratch,  {.ui = 4 } },
 /* exec cmd */
-	{ MODKEY|ShiftMask,             XK_m,              spawn,         CMD("st -e cmus") },
 	{ MOD2,                         XK_u,              spawn,         CMD("clipmenu") }, 
 	{ 0,                            XF86XK_Calculator, spawn,         CMD("= --dmenu=dmenu -- -l 3 -c") }, /* menu-calc script */
 /* media keys */

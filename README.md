@@ -121,7 +121,7 @@ App Bindings
     Scratchpad:
         - dropdown:                          Super+/
         - gnote:                             Super+n
-        - sdcv:                              Super+m
+        - sdcv:                              Alt+Shift+m
 
     dmenu: 
       - dmenu:                               Alt+;
@@ -143,7 +143,7 @@ App Bindings
       - elinks:                              Alt+n
     
     Music:                                   
-      - cmus:                                Alt+Shift+m
+      - ncmpcpp:                             Super+m
     
     Screenshot:
       - FullScreen:                          prtsc
