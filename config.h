@@ -15,8 +15,8 @@ static const char Normbd[]      = "#444444";
 static const char Selbg[]       = "#000000"; /* #000000 #005577*/
 static const char Selfg[]       = "#eeeeee"; /* tag and windwo name color #eeeeee */
 static const char Selbd[]       = "#770000"; /* bar color #111111 #005577 #0a0f14 #ff0000 #ffff00 #ffffff #fea64c #282c34 #d7d7d7 #02143f */
-static const unsigned int baralpha    = 0.9; /*  0xd0 */
-static const unsigned int borderalpha = 0.9; /*  OPAQUE */
+static const unsigned int baralpha    = 0.8; /*  0xd0 */
+static const unsigned int borderalpha = 0.6; /*  OPAQUE */
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -65,6 +65,7 @@ static const Rule rules[] = {
 { "Gimp",                    NULL,     NULL,               0,         1,          0,           0,        -1 },
 { "firefox",                 NULL,     NULL,               1 << 1,    0,          0,          -1,        -1 },
 { "qutebrowser",             NULL,     NULL,               1 << 1,    0,          0,           0,        -1 },
+{ "Pinentry-gtk-2",          NULL,     NULL,               0,         1,          0,           0,        -1 },
 { NULL,		                 "qtfp",   NULL,               0,	      1,			                     -1 },
 { "mpv",                     NULL,     NULL,               1 << 2,    1,                       1,        -1 },
 { "MPlayer",                 NULL,     NULL,               1 << 2,    1,                       1,        -1 },
@@ -75,7 +76,7 @@ static const Rule rules[] = {
 { NULL,                      "music",  NULL,               SPTAG(4),  1,                       0,        -1 },
 { "kile",                    NULL,     NULL,               1 << 3,    0,	                             -1 },
 { "libreoffice",             NULL,     NULL,               1 << 3,    0,                       0,        -1 },
-{ "soffice",                 NULL,     NULL,               1 << 3,    0,                       0,        -1 },
+{ "Soffice",                 NULL,     NULL,               1 << 3,    0,                       0,        -1 },
 { "libreoffice-startcenter", NULL,     NULL,               1 << 3,    0,                       0,        -1 },
 };
 
