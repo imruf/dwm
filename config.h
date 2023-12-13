@@ -68,6 +68,7 @@ static const Rule rules[] = {
 { "Pinentry-gtk-2",          NULL,     NULL,               0,         1,          0,           0,        -1 },
 { NULL,		                 "qtfp",   NULL,               0,	      1,			                     -1 },
 { "mpv",                     NULL,     NULL,               1 << 2,    1,                       1,        -1 },
+{ "vlc",                     NULL,     NULL,               1 << 2,    1,                       1,        -1 },
 { "MPlayer",                 NULL,     NULL,               1 << 2,    1,                       1,        -1 },
 { NULL,		                 "spterm", NULL,               SPTAG(0),  1,			                     -1 },
 { NULL,		                 "nnn",    NULL,               SPTAG(1),  1,			                     -1 },
