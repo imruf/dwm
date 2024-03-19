@@ -91,6 +91,15 @@ Layouts
     Toggle Layout:                           Alt+Space
     Toggle Float:                            Alt+Shift+Space
     
+Gap
+---
+
+    Increase:                               Control+KP_Add
+    Decrease:                               Control+KP_Minus
+    Reset:                                  Control+Shift+KP_Enter
+    Toggle:                                 Control+Shift+KP_Divide
+
+    
 
 System
 ---
@@ -120,7 +129,7 @@ App Bindings
     
     Scratchpad:
         - dropdown:                          Super+/
-        - gnote:                             Super+n
+        - kate:                             Super+n
         - sdcv:                              Alt+Shift+m
 
     dmenu: 
