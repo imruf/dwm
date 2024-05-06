@@ -36,14 +36,14 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
-const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "110x18", NULL };
+const char *spcmd1[] = {TERMINAL, "-n", "pad", "-g", "110x18", "-e", "pad_tmux", NULL };
 const char *spcmd2[] = {TERMINAL, "-n", "nnn", "-g", "130x22", "-e", "nnn_tmux", NULL };
 const char *spcmd3[] = {"kate", "-s", "notes", NULL };
 const char *spcmd4[] = {"konsole", "--profile", "sol", NULL }; /* konsole can render devnagri complex script font perfectly  */
 const char *spcmd5[] = {TERMINAL, "-n", "music", "-g", "110x18", "-e", "ncmpcpp", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
-	{"spterm",      spcmd1},
+	{"pad",      spcmd1},
 	{"nnn",         spcmd2},
 	{"kate",        spcmd3},
 	{"sdcv",        spcmd4},
@@ -69,10 +69,10 @@ static const Rule rules[] = {
 { "qutebrowser",             NULL,     NULL,               1 << 1,    0,          0,           0,        -1 },
 { "Pinentry-gtk-2",          NULL,     NULL,               0,         1,          0,           0,        -1 },
 { NULL,		                 "qtfp",   NULL,               0,	      1,			                     -1 },
-{ "mpv",                     NULL,     NULL,               1 << 2,    1,                       1,        -1 },
+{ "mpv",                     NULL,     NULL,               0,         1,                       1,        -1 },
 { "vlc",                     NULL,     NULL,               1 << 2,    1,                       1,        -1 },
 { "MPlayer",                 NULL,     NULL,               1 << 2,    1,                       1,        -1 },
-{ NULL,		                 "spterm", NULL,               SPTAG(0),  1,			                     -1 },
+{ NULL,		                 "pad", NULL,               SPTAG(0),  1,			                     -1 },
 { NULL,		                 "nnn",    NULL,               SPTAG(1),  1,			                     -1 },
 { "kate",                    NULL,     "notes: notes.md ", SPTAG(2),  1,	                             -1 },
 { "konsole",                 NULL,     NULL,               SPTAG(3),  1,                       0,        -1 },
