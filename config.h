@@ -72,7 +72,7 @@ static const Rule rules[] = {
 { "mpv",                     NULL,     NULL,               0,         1,                       1,        -1 },
 { "vlc",                     NULL,     NULL,               1 << 2,    1,                       1,        -1 },
 { "MPlayer",                 NULL,     NULL,               1 << 2,    1,                       1,        -1 },
-{ NULL,		                 "pad", NULL,               SPTAG(0),  1,			                     -1 },
+{ NULL,		                 "pad",    NULL,               SPTAG(0),  1,			                     -1 },
 { NULL,		                 "nnn",    NULL,               SPTAG(1),  1,			                     -1 },
 { "kate",                    NULL,     "notes: notes.md ", SPTAG(2),  1,	                             -1 },
 { "konsole",                 NULL,     NULL,               SPTAG(3),  1,                       0,        -1 },
