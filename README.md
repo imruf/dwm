@@ -1,4 +1,4 @@
-dwm - dynamic window manager Version:6.3
+dwm - dynamic window manager Version: 6.3
 ---
  dwm is an extremely fast, small, and dynamic window manager for X.
  
