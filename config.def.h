@@ -52,13 +52,15 @@ typedef struct {
 const char *spcmd1[] = {TERMINAL, "-n", "PAD", "-g", "130x22", "-e", "pad_tmux", NULL };
 const char *spcmd2[] = {TERMINAL, "-n", "NNN", "-g", "130x22", "-e", "nnn_tmux", NULL };
 const char *spcmd3[] = {TERMINAL, "-n", "MUSIC", "-g", "130x22", "-e", "ncmpcpp", NULL };
-const char *spcmd4[] = {"kate", "-s", "notes", NULL };
+const char *spcmd4[] = {TERMINAL, "-n", "CALC", "-g", "60x5", "-e", "qalc", NULL };
+const char *spcmd5[] = {"kate", "-s", "notes", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"PAD",      spcmd1},
 	{"NNN",      spcmd2},
 	{"MUSIC",    spcmd3},
-	{"KATE",     spcmd4},
+	{"CALC",     spcmd4},
+	{"KATE",     spcmd5},
 };
 
 /* tagging */
@@ -73,14 +75,13 @@ static const Rule rules[] = {
   /* class                   instance  title               tags mask  isfloating  isterminal  noswallow  monitor */
 { TERMINAL,                  NULL,     NULL,               0,         0,          1,          -1,        -1 },
 { "Gimp",                    NULL,     NULL,               0,         1,          0,           0,        -1 },
-{ "CALC",                    NULL,     NULL,               0,         1,          0,           0,        -1 },
 { "Pinentry-gtk-2",          NULL,     NULL,               0,         1,          0,           0,        -1 },
 
 /* browsers */
 { "librewolf",               NULL,     NULL,               1 << 1,    0,          0,          -1,        -1 },
 { "qutebrowser",             NULL,     NULL,               1 << 1,    0,          0,           0,        -1 },
-{ "firefox",                 NULL,     NULL,               1 << 1,    1,          0,          -1,        -1 },
-{ NULL,		                   "qtfp",   NULL,               0,	        1,		                             -1 },
+{ "firefox",                 NULL,     NULL,               1 << 1,    0,          0,          -1,        -1 },
+{ NULL,		                   "qtfp",   NULL,             0,	      1,	                             -1 },
 
 /* office */
 { "kile",                    NULL,     NULL,               1 << 3,    0,	                               -1 },
@@ -95,10 +96,11 @@ static const Rule rules[] = {
 { "jamesdsp",                "jamesdsp", NULL,             0,         1,                       1,        -1 },
 
 /* scratchpads */
-{ NULL,		                   "PAD",    NULL,               SPTAG(0),  1,			                           -1 },
-{ NULL,		                   "NNN",    NULL,               SPTAG(1),  1,			                           -1 },
+{ NULL,		                 "PAD",    NULL,               SPTAG(0),  1,		                         -1 },
+{ NULL,		                 "NNN",    NULL,               SPTAG(1),  1,		                         -1 },
 { NULL,                      "MUSIC",  NULL,               SPTAG(2),  1,                                 -1 },
-{ "kate",                    NULL,     "notes: notes.md ", SPTAG(3),  1,	                               -1 },
+{ NULL,                      "CALC",   NULL,               SPTAG(3),  1,          0,           0,        -1 },
+{ "kate",                    NULL,     "notes: notes.md ", SPTAG(4),  1,	                             -1 },
 };
 
 /* layout(s) */
@@ -155,7 +157,6 @@ static const char *brdec[] = { "blkeys", "down", NULL };
 static const char *broff[] = { "blkeys", "off", NULL };
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-i", "-p", ":>_", NULL };
-static const char *calccmd[] = { "st", "-c", "CALC", "-g", "60x5-5+0", "-e", "qalc", NULL };
 
 #include <X11/XF86keysym.h>
 #include "movestack.c"
@@ -265,15 +266,13 @@ static Key keys[] = {
 /* scratch pads */
 	{ MOD2,                         XK_slash,         togglescratch,  {.ui = 0 } },
   /* files */
-	{ MODKEY, 			                XK_o,             togglescratch,  {.ui = 1 } },
+	{ MODKEY, 			            XK_o,             togglescratch,  {.ui = 1 } },
   /* music */
 	{ MOD2,	                        XK_m,             togglescratch,  {.ui = 2 } },
+  /* calculator */
+	{ 0,	                        XF86XK_Calculator,togglescratch,  {.ui = 3 } },
   /* notes */
-	{ MOD2, 			                  XK_n,             togglescratch,  {.ui = 3 } },
-
-
-/* calculator */
-	{ 0,                           XF86XK_Calculator, spawn,          {.v = calccmd } },
+	{ MOD2, 			            XK_n,             togglescratch,  {.ui = 4 } },
 
 /* gapps */
 	{ ControlMask,                  XK_KP_Subtract,  setgaps,        {.i = -5 } },

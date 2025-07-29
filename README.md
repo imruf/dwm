@@ -131,21 +131,23 @@ App Bindings
     Terminal:                                Alt+/
     
     Scratchpad:
-        - dropdown:                          Super+/
-        - kate:                              Super+n
+        - dropdown terminal:                 Super+/
+        - files:       						 Alt+o
+        - music:       						 Super+m
+        - calc:       						 Fn+Keypad_Enter
+        - notes:                             Super+n
 
     dmenu: 
       - dmenu:                               Alt+;
       - dbang:                               Super+;
       - dweb:                                Alt+i
       - dssr:                                Alt+p
-      - calc:                                Fn+Keypad_Enter
+      - calc:                                Fn+Shift+Keypad_Enter
       - powermenu:                           Alt+Shift+x
       - clipmenu:                            Super+u
     
     Files:
-      - nnn (with preview support):          Alt+o
-      - nnn:                                 Super+o
+      - nnn:          						 Alt+o
       - pcmanfm:                             Alt+Shift+o
     
     Browser:
