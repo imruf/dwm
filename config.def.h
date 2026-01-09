@@ -53,7 +53,7 @@ const char *spcmd1[] = {TERMINAL, "-n", "PAD", "-g", "130x22", "-e", "pad_tmux",
 const char *spcmd2[] = {TERMINAL, "-n", "NNN", "-g", "130x22", "-e", "nnn_tmux", NULL };
 const char *spcmd3[] = {TERMINAL, "-n", "MUSIC", "-g", "130x22", "-e", "ncmpcpp", NULL };
 const char *spcmd4[] = {TERMINAL, "-n", "CALC", "-g", "60x5", "-e", "qalc", NULL };
-const char *spcmd5[] = {"kate", "-s", "notes", NULL };
+const char *spcmd5[] = {"kate", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"PAD",      spcmd1},
@@ -100,7 +100,7 @@ static const Rule rules[] = {
 { NULL,		                 "NNN",    NULL,               SPTAG(1),  1,		                         -1 },
 { NULL,                      "MUSIC",  NULL,               SPTAG(2),  1,                                 -1 },
 { NULL,                      "CALC",   NULL,               SPTAG(3),  1,          0,           0,        -1 },
-{ "kate",                    NULL,     "notes: notes.md ", SPTAG(4),  1,	                             -1 },
+{ "kate",                    NULL,     NULL, SPTAG(4),  1,	                             -1 },
 };
 
 /* layout(s) */
