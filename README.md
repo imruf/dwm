@@ -135,7 +135,8 @@ App Bindings
         - files:       						 Alt+o
         - music:       						 Super+m
         - calc:       						 Fn+Keypad_Enter
-        - notes:                             Super+n
+        - latex:                             Super+n
+        - notes:                             Super+o
 
     dmenu: 
       - dmenu:                               Alt+;

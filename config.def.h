@@ -53,14 +53,16 @@ const char *spcmd1[] = {TERMINAL, "-n", "PAD", "-g", "130x22", "-e", "pad_tmux",
 const char *spcmd2[] = {TERMINAL, "-n", "NNN", "-g", "130x22", "-e", "nnn_tmux", NULL };
 const char *spcmd3[] = {TERMINAL, "-n", "MUSIC", "-g", "130x22", "-e", "ncmpcpp", NULL };
 const char *spcmd4[] = {TERMINAL, "-n", "CALC", "-g", "60x5", "-e", "qalc", NULL };
-const char *spcmd5[] = {"kate", NULL };
+const char *spcmd5[] = {"kile", NULL };
+const char *spcmd6[] = {"kate", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"PAD",      spcmd1},
 	{"NNN",      spcmd2},
 	{"MUSIC",    spcmd3},
 	{"CALC",     spcmd4},
-	{"KATE",     spcmd5},
+	{"KILE",     spcmd5},
+	{"KATE",     spcmd6},
 };
 
 /* tagging */
@@ -84,7 +86,6 @@ static const Rule rules[] = {
 { NULL,		                   "qtfp",   NULL,             0,	      1,	                             -1 },
 
 /* office */
-{ "kile",                    NULL,     NULL,               1 << 3,    0,	                               -1 },
 { "libreoffice",             NULL,     NULL,               1 << 3,    0,                       0,        -1 },
 { "Soffice",                 NULL,     NULL,               1 << 3,    0,                       0,        -1 },
 { "libreoffice-startcenter", NULL,     NULL,               1 << 3,    0,                       0,        -1 },
@@ -100,7 +101,8 @@ static const Rule rules[] = {
 { NULL,		                 "NNN",    NULL,               SPTAG(1),  1,		                         -1 },
 { NULL,                      "MUSIC",  NULL,               SPTAG(2),  1,                                 -1 },
 { NULL,                      "CALC",   NULL,               SPTAG(3),  1,          0,           0,        -1 },
-{ "kate",                    NULL,     NULL, SPTAG(4),  1,	                             -1 },
+{ "kile",                    NULL,     NULL, 			   SPTAG(4),  1,	                             -1 },
+{ "kate",                    NULL,     NULL, 			   SPTAG(5),  1,	                             -1 },
 };
 
 /* layout(s) */
@@ -273,6 +275,8 @@ static Key keys[] = {
 	{ 0,	                        XF86XK_Calculator,togglescratch,  {.ui = 3 } },
   /* notes */
 	{ MOD2, 			            XK_n,             togglescratch,  {.ui = 4 } },
+  /* latex */
+	{ MOD2, 			            XK_o,             togglescratch,  {.ui = 5 } },
 
 /* gapps */
 	{ ControlMask,                  XK_KP_Subtract,  setgaps,        {.i = -5 } },
