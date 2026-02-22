@@ -152,7 +152,7 @@ App Bindings
       - pcmanfm:                             Alt+Shift+o
     
     Browser:
-      - qutebrowsr:                          Alt+u
+      - waterfox:                            Alt+u
       - elinks:                              Alt+n
     
     Music:                                   

@@ -138,7 +138,8 @@ static const Layout layouts[] = {
 /* commands */
 static const char *termcmd[]  = { TERMINAL, NULL };
 static const char *termcmd2[]  = { Z_TERMINAL, NULL };
-static const char *bcmd[] = { "qutebrowser", NULL };
+static const char *bcmd[] = { "waterfox", NULL };
+/* static const char *bcmd[] = { "qutebrowser", NULL }; */
 /* static const char *bcmd2[] = { "librewolf", NULL }; */
 /* static const char *bcmd2[] = { "firefox", NULL }; */
 static const char *bcmd3[] = { TERMINAL, "-e", "elinks", "about://blank", NULL };
