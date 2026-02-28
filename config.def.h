@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 /* Constants */
 #define TERMINAL "st"
-#define Z_TERMINAL "wezterm"
+#define Z_TERMINAL "alacritty"
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -49,12 +49,25 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
+
+/* st config */
+/*  
 const char *spcmd1[] = {TERMINAL, "-n", "PAD", "-g", "130x22", "-e", "pad_tmux", NULL };
 const char *spcmd2[] = {TERMINAL, "-n", "NNN", "-g", "130x22", "-e", "nnn_tmux", NULL };
 const char *spcmd3[] = {TERMINAL, "-n", "MUSIC", "-g", "130x22", "-e", "ncmpcpp", NULL };
 const char *spcmd4[] = {TERMINAL, "-n", "CALC", "-g", "60x5", "-e", "qalc", NULL };
 const char *spcmd5[] = {"kile", NULL };
 const char *spcmd6[] = {"kate", NULL };
+*/
+
+/* alacritty config */
+const char *spcmd1[] = {Z_TERMINAL, "--class", "Alacritty,PAD", "--config-file", "/home/masud/.config/alacritty/alacritty-float.toml", "-e", "pad_tmux", NULL };
+const char *spcmd2[] = {Z_TERMINAL, "--class", "Alacritty,NNN", "--config-file", "/home/masud/.config/alacritty/alacritty-float.toml", "-e", "nnn_tmux", NULL };
+const char *spcmd3[] = {Z_TERMINAL, "--class", "Alacritty,MUSIC", "--config-file", "/home/masud/.config/alacritty/alacritty-float.toml", "-e", "ncmpcpp", NULL };
+const char *spcmd4[] = {Z_TERMINAL, "--class", "Alacritty,CALC", "--config-file", "/home/masud/.config/alacritty/alacritty-float.toml", "-e", "qalc", NULL };
+const char *spcmd5[] = {"kile", NULL };
+const char *spcmd6[] = {"kate", NULL };
+
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"PAD",      spcmd1},
@@ -76,6 +89,7 @@ static const Rule rules[] = {
 	 */
   /* class                   instance  title               tags mask  isfloating  isterminal  noswallow  monitor */
 { TERMINAL,                  NULL,     NULL,               0,         0,          1,          -1,        -1 },
+{ Z_TERMINAL,                NULL,     NULL,               0,         0,          1,          -1,        -1 },
 { "Gimp",                    NULL,     NULL,               0,         1,          0,           0,        -1 },
 { "Pinentry-gtk-2",          NULL,     NULL,               0,         1,          0,           0,        -1 },
 
@@ -83,6 +97,7 @@ static const Rule rules[] = {
 { "librewolf",               NULL,     NULL,               1 << 1,    0,          0,          -1,        -1 },
 { "qutebrowser",             NULL,     NULL,               1 << 1,    0,          0,           0,        -1 },
 { "firefox",                 NULL,     NULL,               1 << 1,    0,          0,          -1,        -1 },
+{ "waterfox",                NULL,     NULL,               1 << 1,    0,          0,          -1,        -1 },
 { NULL,		                   "qtfp",   NULL,             0,	      1,	                             -1 },
 
 /* office */
@@ -136,13 +151,13 @@ static const Layout layouts[] = {
 #define STATUSBAR "dwmblocks"
 
 /* commands */
-static const char *termcmd[]  = { TERMINAL, NULL };
-static const char *termcmd2[]  = { Z_TERMINAL, NULL };
+static const char *termcmd[]  = { Z_TERMINAL, NULL };
+static const char *termcmd1[]  = { TERMINAL, NULL };
 static const char *bcmd[] = { "waterfox", NULL };
 /* static const char *bcmd[] = { "qutebrowser", NULL }; */
 /* static const char *bcmd2[] = { "librewolf", NULL }; */
 /* static const char *bcmd2[] = { "firefox", NULL }; */
-static const char *bcmd3[] = { TERMINAL, "-e", "elinks", "about://blank", NULL };
+static const char *bcmd3[] = { Z_TERMINAL, "-e", "elinks", "about://blank", NULL };
 static const char *dbang[] = { "dbang", NULL };
 static const char *dweb[] = { "dweb", NULL };
 static const char *dssr[] = { "dssr", NULL };
@@ -254,7 +269,7 @@ static Key keys[] = {
 
 /* terminal */
 	{ MODKEY,                       XK_slash,         spawn,          {.v = termcmd } },
-	{ MODKEY|ShiftMask,             XK_slash,         spawn,          {.v = termcmd2 } },
+	{ MODKEY|ShiftMask,             XK_slash,         spawn,          {.v = termcmd1 } },
 
 /* browsers */
 	{ MODKEY,                       XK_u,             spawn,          {.v = bcmd } },
